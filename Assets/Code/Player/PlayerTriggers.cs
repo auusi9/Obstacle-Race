@@ -12,10 +12,6 @@ namespace Code.Player
             {
                 _player.RestartObstacle();
             }
-            else if(other.CompareTag("FinalPosition"))
-            {
-                _player.NewObstacle();
-            }
         }
     }
 }

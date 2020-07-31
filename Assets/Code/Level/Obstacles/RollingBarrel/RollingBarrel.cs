@@ -16,7 +16,7 @@ namespace Code.Level.Obstacles.RollingBarrel
 
         private void Start()
         {
-            _barrelPool = new ComponentPool<Barrel>(_initialPoolSize, _barrelPrefab, transform, _barrelPrefab.transform.rotation);
+            _barrelPool = new ComponentPool<Barrel>(_initialPoolSize, _barrelPrefab, transform);
         }
 
         private void Update()
@@ -31,7 +31,7 @@ namespace Code.Level.Obstacles.RollingBarrel
         private void SpawnBarrel()
         {
             Barrel barrel = _barrelPool.GetComponent();
-            barrel.StartBarrel(_spawnPosition.position, _finalPosition.position, this);
+            barrel.StartBarrel(_spawnPosition.position, _finalPosition.position, _barrelPrefab.transform.localRotation,this);
         }
 
         public void ReturnBarrel(Barrel barrel)

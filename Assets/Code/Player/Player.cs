@@ -11,6 +11,7 @@ namespace Code.Player
         [SerializeField] private Level.Level _level;
         [SerializeField] private Obstacle _currentObstacle;
         [SerializeField] private PlayerJump _jump;
+        [SerializeField] private TrailRenderer _trail;
         [SerializeField] private float _maxMove;
 
         private ObstaclePath _obstaclePath;
@@ -19,14 +20,15 @@ namespace Code.Player
 
         private void Start()
         {
+            enabled = false;
             _intialY = transform.position.y;
-            NewObstacle();
         }
 
         private void StartObstacle()
         {
             _obstaclePath = _currentObstacle.Path;
             _currentPathPoint = _obstaclePath.GetInitialDestination();
+            _camera.SetNewAnchor(_currentObstacle.CameraAnchor, _currentPathPoint.position);
             enabled = true;
             _jump.enabled = false;
         }
@@ -37,6 +39,7 @@ namespace Code.Player
             Vector3 finalPosition = _currentPathPoint.position;
             finalPosition.y = _intialY;
             transform.position = finalPosition;
+            _trail.Clear();
         }
 
         private void Update()
@@ -108,11 +111,20 @@ namespace Code.Player
             if (_currentObstacle == null)
             {
                 Debug.Log("LevelCompleted");
+                _level.RestartLevel();
                 return;
             }
             
-            _camera.SetNewAnchor(_currentObstacle.CameraAnchor);
             StartObstacle();
+        }
+        
+        public void RestartLevel()
+        {
+            NewObstacle();
+            Vector3 finalPosition = _currentPathPoint.position;
+            finalPosition.y = _intialY;
+            transform.position = finalPosition;
+            _trail.Clear();
         }
     }
 }

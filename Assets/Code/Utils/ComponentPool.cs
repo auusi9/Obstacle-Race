@@ -41,7 +41,6 @@ namespace Code.Utils
         private T CreateNewInstance()
         {
             GameObject go = Object.Instantiate(_prefab, Vector3.zero, _defaultRotation, _parent);
-            go.transform.localRotation = _defaultRotation;
             go.SetActive(false);
         
             return go.GetComponent<T>();
