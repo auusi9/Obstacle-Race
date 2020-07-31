@@ -36,6 +36,11 @@ namespace Code.Player
         public void RestartObstacle()
         {
             StartObstacle();
+            SetPositionToCurrentPathPoint();
+        }
+
+        private void SetPositionToCurrentPathPoint()
+        {
             Vector3 finalPosition = _currentPathPoint.position;
             finalPosition.y = _intialY;
             transform.position = finalPosition;
@@ -121,10 +126,7 @@ namespace Code.Player
         public void RestartLevel()
         {
             NewObstacle();
-            Vector3 finalPosition = _currentPathPoint.position;
-            finalPosition.y = _intialY;
-            transform.position = finalPosition;
-            _trail.Clear();
+            SetPositionToCurrentPathPoint();
         }
     }
 }

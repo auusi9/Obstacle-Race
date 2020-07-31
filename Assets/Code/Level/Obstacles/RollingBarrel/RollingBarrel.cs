@@ -21,11 +21,16 @@ namespace Code.Level.Obstacles.RollingBarrel
 
         private void Update()
         {
-            if (_spawnTime < Time.time - _lastBarrelSpawned)
+            if (HasToSpawnNewBarrel())
             {
                 SpawnBarrel();
                 _lastBarrelSpawned = Time.time;
             }
+        }
+
+        private bool HasToSpawnNewBarrel()
+        {
+            return _spawnTime < Time.time - _lastBarrelSpawned;
         }
 
         private void SpawnBarrel()
