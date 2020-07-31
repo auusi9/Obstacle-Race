@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 73228241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.7292, y: 0, z: 0}
-  m_LocalScale: {x: 0.13, y: 1, z: 1}
+  m_LocalScale: {x: 0.13, y: 1, z: 1.0507}
   m_Children: []
   m_Father: {fileID: 4125387556489048886}
   m_RootOrder: 1
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _lineRenderer: {fileID: 0}
 --- !u!1 &243980709
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +232,7 @@ MonoBehaviour:
   - {fileID: 199545379}
   - {fileID: 1637153162}
   - {fileID: 1573797311}
+  _tolerance: 0.1
 --- !u!1 &894882101
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,11 +303,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -12.722164, y: 0, z: -2.0417209}
-  - {x: -2.860134, y: 0, z: -2.0744076}
-  - {x: -1.2351267, y: 0, z: -1.9469309}
-  - {x: -0.1077013, y: 0, z: -1.238987}
   - {x: 0, y: 0, z: 1}
+  - {x: -0.1077013, y: 0, z: -1.238987}
+  - {x: -1.2351267, y: 0, z: -1.9469309}
+  - {x: -2.860134, y: 0, z: -2.0744076}
+  - {x: -14.214852, y: 0, z: -2.0417209}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -374,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _lineRenderer: {fileID: 894882104}
 --- !u!1 &1573797309
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _lineRenderer: {fileID: 0}
 --- !u!1 &1637153160
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637153160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.895, y: 0.5, z: 0}
+  m_LocalPosition: {x: -13.332, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 243980710}
@@ -462,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _lineRenderer: {fileID: 0}
 --- !u!1 &1469896896613614701
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca8d7fc20f622943a9e825c4ff68a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraPosition: {fileID: 7924132480730377378}
+  _cameraAnchor: {fileID: 7924132480730377378}
   _path: {fileID: 243980711}
 --- !u!1 &4811816236469791884
 GameObject:

@@ -6,25 +6,24 @@ namespace Code.Level
 {
     public class Level : MonoBehaviour
     {
+        [SerializeField] private Obstacle[] _obstaclesOnScene;
         private Queue<Obstacle> _obstacles;
 
-        private Obstacle _currentObstacle;
+        public Obstacle NextObstacle => _obstacles.Dequeue();
+
+        private void Awake()
+        {
+            StartLevel(_obstaclesOnScene);
+        }
+
+        private void RestartLevel()
+        {
+            Awake();
+        }
 
         private void StartLevel(Obstacle[] levelObstacles)
         {
             _obstacles = new Queue<Obstacle>(levelObstacles);
-            _currentObstacle = _obstacles.Dequeue();
-        }
-
-        private void StartCurrentObstacle()
-        {
-            _currentObstacle.ObstacleCompleted += ObstacleCompleted;
-        }
-
-        private void ObstacleCompleted()
-        {
-            _currentObstacle.ObstacleCompleted -= ObstacleCompleted;
-            _currentObstacle = _obstacles.Dequeue();
         }
     }
 }

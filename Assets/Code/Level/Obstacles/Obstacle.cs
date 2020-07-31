@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 namespace Code.Level.Obstacles
 {
     public class Obstacle : MonoBehaviour
     {
-        [SerializeField] private Transform _cameraPosition;
+        [SerializeField] private Transform _cameraAnchor;
         [SerializeField] private ObstaclePath.ObstaclePath _path;
 
-        public event UnityAction ObstacleCompleted;
-        
+        public ObstaclePath.ObstaclePath Path => _path;
+        public Transform CameraAnchor => _cameraAnchor;
         
         public enum Type
         {
